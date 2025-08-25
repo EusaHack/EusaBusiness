@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EusaSpark - Consultora de Desarrollo de Software</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado con navegación -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="EusaSpark Logo" width="40" height="40">
+                <span>EusaSpark</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transformamos Ideas en Soluciones Tecnológicas Innovadoras</h1>
+                <p class="hero-subtitle">Ayudamos a empresas a alcanzar su máximo potencial mediante desarrollo de software a medida, consultoría tecnológica y transformación digital.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary">Comenzar Proyecto</a>
+                    <a href="#servicios" class="btn btn-secondary">Conocer Servicios</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="50" width="400" height="300" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                    <rect x="70" y="70" width="360" height="40" rx="8" fill="#2563eb"/>
+                    <rect x="80" y="130" width="160" height="20" rx="4" fill="#cbd5e1"/>
+                    <rect x="80" y="160" width="200" height="20" rx="4" fill="#cbd5e1"/>
+                    <rect x="80" y="190" width="120" height="20" rx="4" fill="#cbd5e1"/>
+                    <rect x="300" y="130" width="120" height="120" rx="8" fill="#e2e8f0"/>
+                    <circle cx="360" cy="190" r="30" fill="#2563eb" opacity="0.2"/>
+                    <path d="M345 190l10 10 20-20" stroke="#2563eb" stroke-width="3" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Ofrecemos soluciones tecnológicas integrales para impulsar el crecimiento de tu empresa</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="32" height="32" rx="4" fill="#2563eb" opacity="0.1"/>
+                            <path d="M16 20h16M16 24h12M16 28h8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desarrollo de Software a Medida</h3>
+                    <p class="service-description">Creamos aplicaciones web y móviles personalizadas que se adaptan perfectamente a las necesidades específicas de tu negocio.</p>
+                    <ul class="service-features">
+                        <li>Aplicaciones web responsivas</li>
+                        <li>Aplicaciones móviles nativas</li>
+                        <li>Sistemas de gestión empresarial</li>
+                        <li>APIs y microservicios</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="16" fill="#2563eb" opacity="0.1"/>
+                            <path d="M24 16v8l4 4" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="2" fill="#2563eb"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Consultoría Tecnológica</h3>
+                    <p class="service-description">Asesoramos a tu empresa en la toma de decisiones tecnológicas estratégicas para optimizar procesos y reducir costos.</p>
+                    <ul class="service-features">
+                        <li>Auditoría de sistemas existentes</li>
+                        <li>Arquitectura de software</li>
+                        <li>Selección de tecnologías</li>
+                        <li>Estrategia de migración</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="12" width="24" height="24" rx="4" fill="#2563eb" opacity="0.1"/>
+                            <path d="M20 24l4 4 8-8" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Transformación Digital</h3>
+                    <p class="service-description">Acompañamos a tu organización en el proceso de digitalización completa, modernizando procesos y sistemas legacy.</p>
+                    <ul class="service-features">
+                        <li>Automatización de procesos</li>
+                        <li>Migración a la nube</li>
+                        <li>Integración de sistemas</li>
+                        <li>Capacitación del equipo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Casos de Éxito</h2>
+                <p class="section-subtitle">Conoce algunos de los proyectos que hemos desarrollado para nuestros clientes</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="300" height="200" fill="#f1f5f9"/>
+                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
+                            <rect x="30" y="30" width="240" height="30" rx="4" fill="#2563eb"/>
+                            <rect x="30" y="80" width="80" height="60" rx="4" fill="#e2e8f0"/>
+                            <rect x="130" y="80" width="80" height="60" rx="4" fill="#e2e8f0"/>
+                            <rect x="230" y="80" width="40" height="60" rx="4" fill="#2563eb" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema de Gestión Hospitalaria</h3>
+                        <p class="project-description">Desarrollo de una plataforma integral para la gestión de pacientes, citas médicas y historiales clínicos para una red de hospitales.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="300" height="200" fill="#f1f5f9"/>
+                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
+                            <circle cx="150" cy="100" r="40" fill="#2563eb" opacity="0.2"/>
+                            <rect x="60" y="60" width="180" height="80" rx="8" fill="#e2e8f0"/>
+                            <rect x="80" y="80" width="140" height="8" rx="4" fill="#2563eb"/>
+                            <rect x="80" y="100" width="100" height="8" rx="4" fill="#2563eb" opacity="0.6"/>
+                            <rect x="80" y="120" width="120" height="8" rx="4" fill="#2563eb" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-commerce Multitienda</h3>
+                        <p class="project-description">Plataforma de comercio electrónico que permite a múltiples vendedores gestionar sus tiendas online con sistema de pagos integrado.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="300" height="200" fill="#f1f5f9"/>
+                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
+                            <rect x="40" y="40" width="220" height="120" rx="4" fill="#2563eb" opacity="0.1"/>
+                            <rect x="60" y="60" width="60" height="80" rx="4" fill="#2563eb"/>
+                            <rect x="140" y="80" width="60" height="60" rx="4" fill="#2563eb" opacity="0.7"/>
+                            <rect x="220" y="100" width="20" height="40" rx="4" fill="#2563eb" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">App de Gestión Financiera</h3>
+                        <p class="project-description">Aplicación móvil para el control de gastos personales y empresariales con análisis de datos y reportes automatizados.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre EusaSpark</h2>
+                    <p class="about-description">
+                        Somos una consultora especializada en desarrollo de software con más de 8 años de experiencia ayudando a empresas de todos los tamaños a transformar sus ideas en soluciones tecnológicas exitosas.
+                    </p>
+                    <p class="about-description">
+                        Nuestro equipo está formado por desarrolladores senior, arquitectos de software y consultores especializados en las últimas tecnologías. Nos enfocamos en entender profundamente las necesidades de nuestros clientes para ofrecer soluciones que realmente agreguen valor a su negocio.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Proyectos Completados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Clientes Satisfechos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Años de Experiencia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
+                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
+                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
+                            </svg>
+                        </div>
+                        <h4 class="member-name">Ana García</h4>
+                        <p class="member-role">CEO & Fundadora</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
+                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
+                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
+                            </svg>
+                        </div>
+                        <h4 class="member-name">Carlos Rodríguez</h4>
+                        <p class="member-role">CTO</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
+                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
+                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
+                            </svg>
+                        </div>
+                        <h4 class="member-name">María López</h4>
+                        <p class="member-role">Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos sobre cómo podemos ayudarte</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#2563eb" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="10" r="3" stroke="#2563eb" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Dirección</h4>
+                            <p>Av. Tecnológica 123, Piso 8<br>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#2563eb" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Teléfono</h4>
+                            <p>+52 55 1234 5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#2563eb" stroke-width="2" fill="none"/>
+                                <polyline points="22,6 12,13 2,6" stroke="#2563eb" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>contacto@innovatech.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="desarrollo">Desarrollo de Software a Medida</option>
+                            <option value="consultoria">Consultoría Tecnológica</option>
+                            <option value="transformacion">Transformación Digital</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="EusaSpark Logo" width="32" height="32">
+                        <span>EusaSpark</span>
+                    </div>
+                    <p class="footer-description">
+                        Transformamos ideas en soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Desarrollo de Software</a></li>
+                        <li><a href="#servicios">Consultoría Tecnológica</a></li>
+                        <li><a href="#servicios">Transformación Digital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EusaSpark. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
