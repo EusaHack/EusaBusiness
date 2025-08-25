@@ -67,12 +67,19 @@ body {
 }
 
 .logo img {
-    filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.25)) 
+            drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15)) 
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
     transition: filter 0.3s ease;
+    background: transparent;
+    border-radius: 8px;
 }
 
 .logo img:hover {
-    filter: drop-shadow(0 6px 12px rgba(0, 191, 255, 0.4)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 6px 16px rgba(37, 99, 235, 0.35)) 
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) 
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transform: translateY(-1px);
 }
 
 .nav-list {
@@ -511,6 +518,30 @@ section {
     min-height: 120px;
 }
 
+/* Asegurar que el contenedor del logo mantenga fondo limpio */
+.logo, .footer-logo {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/* Efecto adicional para dar más profundidad al ícono */
+.logo img, .footer-logo img {
+    position: relative;
+    z-index: 1;
+}
+
+/* Variante alternativa con sombra más suave y profesional */
+.logo img.soft-shadow {
+    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.2)) 
+            drop-shadow(0 1px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo img.soft-shadow:hover {
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3)) 
+            drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
 /* Pie de página */
 .footer {
     background: var(--gray-900);
@@ -536,12 +567,19 @@ section {
 }
 
 .footer-logo img {
-    filter: drop-shadow(0 3px 6px rgba(0, 191, 255, 0.3)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 3px 10px rgba(59, 130, 246, 0.3)) 
+            drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2)) 
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
     transition: filter 0.3s ease;
+    background: transparent;
+    border-radius: 6px;
 }
 
 .footer-logo img:hover {
-    filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 4px 14px rgba(59, 130, 246, 0.4)) 
+            drop-shadow(0 3px 7px rgba(0, 0, 0, 0.25)) 
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transform: translateY(-1px);
 }
 
 .footer-description {
@@ -884,4 +922,462 @@ html {
 .project-card:hover::before,
 .team-member:hover::before {
     left: 100%;
+}
+
+/* Contenedor VS Code Simulado */
+.vscode-container {
+    width: 500px;
+    height: 400px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    position: relative;
+}
+
+/* Barra superior de VS Code */
+.vscode-titlebar {
+    height: 35px;
+    background: #323233;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #2d2d30;
+}
+
+.vscode-traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.traffic-light.close { background: #ff5f57; }
+.traffic-light.minimize { background: #ffbd2e; }
+.traffic-light.maximize { background: #28ca42; }
+
+.vscode-title {
+    flex: 1;
+    text-align: center;
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Área de pestañas */
+.vscode-tabs {
+    height: 35px;
+    background: #2d2d30;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.vscode-tab {
+    padding: 8px 16px;
+    background: #2d2d30;
+    color: #969696;
+    font-size: 13px;
+    border-right: 1px solid #1e1e1e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.vscode-tab.active {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+.vscode-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #007acc;
+}
+
+/* Área de código */
+.vscode-editor {
+    height: calc(400px - 70px);
+    background: #1e1e1e;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-content {
+    color: #d4d4d4;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Números de línea */
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 40px;
+    color: #858585;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    padding-right: 16px;
+    user-select: none;
+}
+
+.code-area {
+    margin-left: 56px;
+    position: relative;
+}
+
+/* Cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 21px;
+    background: #ffffff;
+    animation: blink 1s infinite;
+    position: relative;
+    top: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Colores de sintaxis para Python */
+.python-keyword { color: #569cd6; }
+.python-string { color: #ce9178; }
+.python-comment { color: #6a9955; }
+.python-function { color: #dcdcaa; }
+.python-number { color: #b5cea8; }
+.python-operator { color: #d4d4d4; }
+
+/* Colores de sintaxis para JavaScript */
+.js-keyword { color: #569cd6; }
+.js-string { color: #ce9178; }
+.js-comment { color: #6a9955; }
+.js-function { color: #dcdcaa; }
+.js-number { color: #b5cea8; }
+.js-operator { color: #d4d4d4; }
+.js-property { color: #9cdcfe; }
+
+/* Colores para comandos Linux */
+.linux-command { color: #4ec9b0; }
+.linux-flag { color: #569cd6; }
+.linux-path { color: #ce9178; }
+.linux-output { color: #d4d4d4; }
+.linux-prompt { color: #4ec9b0; }
+
+/* Animaciones de escritura */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    animation: typing 0.5s steps(1) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Transiciones suaves entre lenguajes */
+.language-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.language-transition.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive para el contenedor VS Code */
+@media (max-width: 768px) {
+    .vscode-container {
+        width: 100%;
+        max-width: 500px;
+        height: 320px;
+    }
+    
+    .vscode-editor {
+        height: calc(320px - 70px);
+        padding: 12px;
+    }
+    
+    .code-content {
+        font-size: 12px;
+    }
+    
+    .line-numbers {
+        font-size: 12px;
+        width: 35px;
+        padding-right: 12px;
+    }
+    
+    .code-area {
+        margin-left: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vscode-container {
+        height: 280px;
+    }
+    
+    .vscode-editor {
+        height: calc(280px - 70px);
+        padding: 8px;
+    }
+    
+    .code-content {
+        font-size: 11px;
+    }
+    
+    .vscode-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Contenedor VS Code Simulado */
+.vscode-container {
+    width: 500px;
+    height: 400px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    position: relative;
+}
+
+/* Barra superior de VS Code */
+.vscode-titlebar {
+    height: 35px;
+    background: #323233;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #2d2d30;
+}
+
+.vscode-traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.traffic-light.close { background: #ff5f57; }
+.traffic-light.minimize { background: #ffbd2e; }
+.traffic-light.maximize { background: #28ca42; }
+
+.vscode-title {
+    flex: 1;
+    text-align: center;
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Área de pestañas */
+.vscode-tabs {
+    height: 35px;
+    background: #2d2d30;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.vscode-tab {
+    padding: 8px 16px;
+    background: #2d2d30;
+    color: #969696;
+    font-size: 13px;
+    border-right: 1px solid #1e1e1e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.vscode-tab.active {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+.vscode-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #007acc;
+}
+
+/* Área de código */
+.vscode-editor {
+    height: calc(400px - 70px);
+    background: #1e1e1e;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-content {
+    color: #d4d4d4;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Números de línea */
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 40px;
+    color: #858585;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    padding-right: 16px;
+    user-select: none;
+}
+
+.code-area {
+    margin-left: 56px;
+    position: relative;
+}
+
+/* Cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 21px;
+    background: #ffffff;
+    animation: blink 1s infinite;
+    position: relative;
+    top: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Colores de sintaxis para Python */
+.python-keyword { color: #569cd6; }
+.python-string { color: #ce9178; }
+.python-comment { color: #6a9955; }
+.python-function { color: #dcdcaa; }
+.python-number { color: #b5cea8; }
+.python-operator { color: #d4d4d4; }
+
+/* Colores de sintaxis para JavaScript */
+.js-keyword { color: #569cd6; }
+.js-string { color: #ce9178; }
+.js-comment { color: #6a9955; }
+.js-function { color: #dcdcaa; }
+.js-number { color: #b5cea8; }
+.js-operator { color: #d4d4d4; }
+.js-property { color: #9cdcfe; }
+
+/* Colores para comandos Linux */
+.linux-command { color: #4ec9b0; }
+.linux-flag { color: #569cd6; }
+.linux-path { color: #ce9178; }
+.linux-output { color: #d4d4d4; }
+.linux-prompt { color: #4ec9b0; }
+
+/* Animaciones de escritura */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    animation: typing 0.5s steps(1) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Transiciones suaves entre lenguajes */
+.language-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.language-transition.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive para el contenedor VS Code */
+@media (max-width: 768px) {
+    .vscode-container {
+        width: 100%;
+        max-width: 500px;
+        height: 320px;
+    }
+    
+    .vscode-editor {
+        height: calc(320px - 70px);
+        padding: 12px;
+    }
+    
+    .code-content {
+        font-size: 12px;
+    }
+    
+    .line-numbers {
+        font-size: 12px;
+        width: 35px;
+        padding-right: 12px;
+    }
+    
+    .code-area {
+        margin-left: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vscode-container {
+        height: 280px;
+    }
+    
+    .vscode-editor {
+        height: calc(280px - 70px);
+        padding: 8px;
+    }
+    
+    .code-content {
+        font-size: 11px;
+    }
+    
+    .vscode-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }
