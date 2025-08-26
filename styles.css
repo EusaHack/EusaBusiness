@@ -1015,7 +1015,7 @@ html {
 
 .code-content {
     color: #d4d4d4;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.5;
     white-space: pre;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -1119,7 +1119,7 @@ html {
     }
     
     .code-content {
-        font-size: 12px;
+        font-size: 9px;
     }
     
     .line-numbers {
@@ -1144,7 +1144,7 @@ html {
     }
     
     .code-content {
-        font-size: 11px;
+        font-size: 8px;
     }
     
     .vscode-tab {
@@ -1379,5 +1379,286 @@ html {
     .vscode-tab {
         padding: 6px 12px;
         font-size: 12px;
+    }
+}
+/* Etiqueta "Próximamente" más pequeña para elementos de lista */
+.coming-soon-tag {
+    display: inline-block;
+    background: #dc2626;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    margin-left: 6px;
+    box-shadow: 0 1px 3px rgba(220, 38, 38, 0.25);
+    vertical-align: middle;
+    animation: pulse-tag 2s infinite;
+}
+
+@keyframes pulse-tag {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 1px 3px rgba(220, 38, 38, 0.25);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 1px 4px rgba(220, 38, 38, 0.35);
+    }
+}
+
+/* Sección de Tecnologías */
+.technologies {
+    background: var(--white);
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.tech-category {
+    text-align: center;
+}
+
+.tech-category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.tech-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+}
+
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+}
+
+.tech-icon:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.tech-icon img {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon:hover svg {
+    transform: scale(1.1);
+}
+
+.tech-icon span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    text-align: center;
+}
+
+.tech-icon:hover span {
+    color: var(--primary-blue);
+}
+
+/* Responsive para tecnologías */
+@media (max-width: 768px) {
+    .technologies-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .tech-icon {
+        padding: 1rem;
+    }
+    
+    .tech-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-icon {
+        padding: 0.75rem;
+    }
+    
+    .tech-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .tech-icon span {
+        font-size: 0.75rem;
+    }
+}
+
+/* Sección de Equipo Profesional */
+.professional-team {
+    background: var(--gray-50);
+    padding: 80px 0;
+}
+
+.professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.professional-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.professional-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), #3b82f6);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.professional-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.professional-card:hover::before {
+    transform: scaleX(1);
+}
+
+.professional-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.professional-icon img {
+    transition: transform 0.3s ease;
+}
+
+.professional-card:hover .professional-icon img {
+    transform: scale(1.1);
+}
+
+.professional-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.professional-description {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.professional-skills {
+    list-style: none;
+    text-align: left;
+}
+
+.professional-skills li {
+    padding: 0.5rem 0;
+    color: var(--gray-600);
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.professional-skills li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* Responsive para equipo profesional */
+@media (max-width: 768px) {
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .professional-card {
+        padding: 2rem;
+    }
+    
+    .professional-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .professional-card {
+        padding: 1.5rem;
+    }
+    
+    .professional-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .professional-title {
+        font-size: 1.125rem;
+    }
+    
+    .professional-description {
+        font-size: 0.9rem;
     }
 }
