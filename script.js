@@ -25,13 +25,14 @@ function initNavigation() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Calcular offset para el header fijo
+                // Calcular offset para el header fijo con margen adicional
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+                const additionalOffset = 20; // Margen adicional para mejor alineación
+                const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
                 
                 // Scroll suave a la sección
                 window.scrollTo({
-                    top: targetPosition,
+                    top: Math.max(0, targetPosition), // Evitar valores negativos
                     behavior: 'smooth'
                 });
                 
@@ -44,29 +45,47 @@ function initNavigation() {
         });
     });
     
-    // Detectar sección activa durante el scroll
+    // Detectar sección activa durante el scroll con debounce
+    let scrollTimeout;
     window.addEventListener('scroll', function() {
+        // Usar debounce para mejorar performance
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            updateActiveSection();
+        }, 10);
+    });
+    
+    // Función separada para actualizar sección activa
+    function updateActiveSection() {
         let current = '';
         const headerHeight = document.querySelector('.header').offsetHeight;
+        const scrollPosition = window.pageYOffset;
+        const additionalOffset = 20; // Mismo offset que en el click
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 100;
+            const sectionTop = section.offsetTop - headerHeight - additionalOffset;
             const sectionHeight = section.clientHeight;
+            const sectionBottom = sectionTop + sectionHeight;
             
-            if (window.pageYOffset >= sectionTop && 
-                window.pageYOffset < sectionTop + sectionHeight) {
+            // Mejorar la detección de sección activa
+            if (scrollPosition >= sectionTop - 50 && scrollPosition < sectionBottom - 50) {
                 current = section.getAttribute('id');
             }
         });
         
+        // Manejar caso especial para la primera sección
+        if (scrollPosition < 100) {
+            current = 'inicio';
+        }
+        
         // Actualizar enlace activo basado en la sección visible
         if (current) {
             const activeLink = document.querySelector(`.nav-link[href="#${current}"]`);
-            if (activeLink) {
+            if (activeLink && !activeLink.classList.contains('active')) {
                 updateActiveNavLink(activeLink);
             }
         }
-    });
+    }
 }
 
 // Actualizar enlace de navegación activo
@@ -495,7 +514,7 @@ class VSCodeSimulator {
             await this.typeCode(content.code);
             
             // Esperar 10 segundos
-            await this.sleep(10000);
+            await this.sleep(8000);
             
             // Cambiar al siguiente lenguaje
             this.currentLanguage = (this.currentLanguage + 1) % this.languages.length;
