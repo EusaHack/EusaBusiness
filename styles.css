@@ -355,6 +355,29 @@ section {
     gap: 1.5rem;
 }
 
+/* Estilo para team-grid con un solo miembro */
+.team-grid-single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-grid-single .team-member {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Responsive para team-grid-single */
+@media (max-width: 768px) {
+    .team-grid-single {
+        justify-content: center;
+    }
+    
+    .team-grid-single .team-member {
+        max-width: 250px;
+    }
+}
+
 .team-member {
     text-align: center;
     background: var(--white);
