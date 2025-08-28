@@ -363,8 +363,9 @@ section {
 }
 
 .team-grid-single .team-member {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
+    padding: 2.5rem 3rem;
 }
 
 /* Responsive para team-grid-single */
@@ -374,7 +375,13 @@ section {
     }
     
     .team-grid-single .team-member {
-        max-width: 250px;
+        max-width: 320px;
+        padding: 2rem;
+    }
+    
+    .ceo-photo {
+        width: 130px;
+        height: 130px;
     }
 }
 
@@ -387,9 +394,26 @@ section {
 }
 
 .member-avatar {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para la foto del CEO */
+.ceo-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 60%;
+    object-fit: cover;
+    border: 4px solid var(--primary-blue);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ceo-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
 }
 
 .member-name {
