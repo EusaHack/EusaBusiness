@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EusaSpark - Consultora de Desarrollo de Software</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo1.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
                 <ul class="nav-list">
                     <li><a href="#inicio" class="nav-link active">Inicio</a></li>
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#proyectos" class="nav-link">Tecnologías</a></li>
                     <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
@@ -43,17 +43,33 @@
                     <a href="#servicios" class="btn btn-secondary">Conocer Servicios</a>
                 </div>
             </div>
+            <!-- En la sección hero, línea ~40, reemplazar el div hero-image completo con: -->
             <div class="hero-image">
-                <svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="50" y="50" width="400" height="300" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
-                    <rect x="70" y="70" width="360" height="40" rx="8" fill="#2563eb"/>
-                    <rect x="80" y="130" width="160" height="20" rx="4" fill="#cbd5e1"/>
-                    <rect x="80" y="160" width="200" height="20" rx="4" fill="#cbd5e1"/>
-                    <rect x="80" y="190" width="120" height="20" rx="4" fill="#cbd5e1"/>
-                    <rect x="300" y="130" width="120" height="120" rx="8" fill="#e2e8f0"/>
-                    <circle cx="360" cy="190" r="30" fill="#2563eb" opacity="0.2"/>
-                    <path d="M345 190l10 10 20-20" stroke="#2563eb" stroke-width="3" fill="none"/>
-                </svg>
+                <div class="vscode-container" id="vscodeContainer">
+                    <!-- Barra superior -->
+                    <div class="vscode-titlebar">
+                        <div class="vscode-traffic-lights">
+                            <div class="traffic-light close"></div>
+                            <div class="traffic-light minimize"></div>
+                            <div class="traffic-light maximize"></div>
+                        </div>
+                        <div class="vscode-title">Visual Studio Code</div>
+                    </div>
+                    
+                    <!-- Pestañas -->
+                    <div class="vscode-tabs">
+                        <div class="vscode-tab active" id="currentTab">main.py</div>
+                    </div>
+                    
+                    <!-- Editor -->
+                    <div class="vscode-editor">
+                        <div class="line-numbers" id="lineNumbers">1</div>
+                        <div class="code-area">
+                            <div class="code-content" id="codeContent"></div>
+                            <span class="cursor" id="cursor"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -93,10 +109,10 @@
                     <h3 class="service-title">Consultoría Tecnológica</h3>
                     <p class="service-description">Asesoramos a tu empresa en la toma de decisiones tecnológicas estratégicas para optimizar procesos y reducir costos.</p>
                     <ul class="service-features">
-                        <li>Auditoría de sistemas existentes</li>
+                        <li>Auditoría de sistemas extg.<span class="coming-soon-tag">Próx.</span></li>
                         <li>Arquitectura de software</li>
                         <li>Selección de tecnologías</li>
-                        <li>Estrategia de migración</li>
+                        <li>Estrategia de migración<span class="coming-soon-tag">Próx.</span></li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -110,7 +126,7 @@
                     <p class="service-description">Acompañamos a tu organización en el proceso de digitalización completa, modernizando procesos y sistemas legacy.</p>
                     <ul class="service-features">
                         <li>Automatización de procesos</li>
-                        <li>Migración a la nube</li>
+                        <li>Migración a la nube<span class="coming-soon-tag">Próx.</span></li>
                         <li>Integración de sistemas</li>
                         <li>Capacitación del equipo</li>
                     </ul>
@@ -119,75 +135,118 @@
         </div>
     </section>
 
-    <!-- Sección de Proyectos -->
-    <section id="proyectos" class="projects">
+    <!-- Sección de Tecnologías -->
+    <section id="proyectos" class="technologies">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Casos de Éxito</h2>
-                <p class="section-subtitle">Conoce algunos de los proyectos que hemos desarrollado para nuestros clientes</p>
+                <h2 class="section-title">Tecnologías que Dominamos</h2>
+                <p class="section-subtitle">Trabajamos con las tecnologías más modernas y demandadas del mercado para crear soluciones robustas y escalables. Estas son algunas de ellas:</p>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="300" height="200" fill="#f1f5f9"/>
-                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
-                            <rect x="30" y="30" width="240" height="30" rx="4" fill="#2563eb"/>
-                            <rect x="30" y="80" width="80" height="60" rx="4" fill="#e2e8f0"/>
-                            <rect x="130" y="80" width="80" height="60" rx="4" fill="#e2e8f0"/>
-                            <rect x="230" y="80" width="40" height="60" rx="4" fill="#2563eb" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Sistema de Gestión Hospitalaria</h3>
-                        <p class="project-description">Desarrollo de una plataforma integral para la gestión de pacientes, citas médicas y historiales clínicos para una red de hospitales.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
+            <div class="technologies-grid">
+                <!-- Frontend -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Frontend</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=v8RpPQUwv0N8&format=png&color=000000" alt="">
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="">
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=PXTY4q2Sq2lG&format=png&color=000000" alt="">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=0Da6k7SMq0hs&format=png&color=000000" alt="">
+                            <span>React</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=rY6agKizO9eb&format=png&color=000000" alt="">
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="">
+                            <span>Python</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="300" height="200" fill="#f1f5f9"/>
-                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
-                            <circle cx="150" cy="100" r="40" fill="#2563eb" opacity="0.2"/>
-                            <rect x="60" y="60" width="180" height="80" rx="8" fill="#e2e8f0"/>
-                            <rect x="80" y="80" width="140" height="8" rx="4" fill="#2563eb"/>
-                            <rect x="80" y="100" width="100" height="8" rx="4" fill="#2563eb" opacity="0.6"/>
-                            <rect x="80" y="120" width="120" height="8" rx="4" fill="#2563eb" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">E-commerce Multitienda</h3>
-                        <p class="project-description">Plataforma de comercio electrónico que permite a múltiples vendedores gestionar sus tiendas online con sistema de pagos integrado.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">MySQL</span>
+
+                <!-- Backend -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Backend</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=fAMVO_fuoOuC&format=png&color=000000" alt="">
+                            <span>PHP</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000" alt="">
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="">
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="">
+                            <span>Java</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=qfQaIYKX23qY&format=png&color=000000" alt="">
+                            <span>Laravel</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=7ej5ASIwdQXG&format=png&color=000000" alt="">
+                            <span>Go</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="300" height="200" fill="#f1f5f9"/>
-                            <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e2e8f0"/>
-                            <rect x="40" y="40" width="220" height="120" rx="4" fill="#2563eb" opacity="0.1"/>
-                            <rect x="60" y="60" width="60" height="80" rx="4" fill="#2563eb"/>
-                            <rect x="140" y="80" width="60" height="60" rx="4" fill="#2563eb" opacity="0.7"/>
-                            <rect x="220" y="100" width="20" height="40" rx="4" fill="#2563eb" opacity="0.4"/>
-                        </svg>
+
+                <!-- Bases de Datos -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Bases de Datos</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=38561&format=png&color=000000" alt="">
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="">
+                            <span>MySQL</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png&color=000000" alt="">
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=pHS3eRpynIRQ&format=png&color=000000" alt="">
+                            <span>Redis</span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">App de Gestión Financiera</h3>
-                        <p class="project-description">Aplicación móvil para el control de gastos personales y empresariales con análisis de datos y reportes automatizados.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">MongoDB</span>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">DevOps & Cloud</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="">
+                            <span>Docker</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=33039&format=png&color=000000" alt="">
+                            <span>AWS</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="">
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="">
+                            <span>Jenkins</span>
                         </div>
                     </div>
                 </div>
@@ -202,60 +261,129 @@
                 <div class="about-text">
                     <h2 class="section-title">Sobre EusaSpark</h2>
                     <p class="about-description">
-                        Somos una consultora especializada en desarrollo de software con más de 8 años de experiencia ayudando a empresas de todos los tamaños a transformar sus ideas en soluciones tecnológicas exitosas.
+                        Somos una consultora especializada en desarrollo de software, ayudando a empresas de todos los tamaños a transformar sus ideas en soluciones tecnológicas exitosas.
                     </p>
                     <p class="about-description">
                         Nuestro equipo está formado por desarrolladores senior, arquitectos de software y consultores especializados en las últimas tecnologías. Nos enfocamos en entender profundamente las necesidades de nuestros clientes para ofrecer soluciones que realmente agreguen valor a su negocio.
                     </p>
                     <div class="stats">
                         <div class="stat">
-                            <span class="stat-number">150+</span>
-                            <span class="stat-label">Proyectos Completados</span>
+                            <span class="stat-number">🚀</span>
+                            <span class="stat-label">Lanzando Ideas</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Clientes Satisfechos</span>
+                            <span class="stat-number">✨</span>
+                            <span class="stat-label">Innovación Constante</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">8+</span>
-                            <span class="stat-label">Años de Experiencia</span>
+                            <span class="stat-number">🎯</span>
+                            <span class="stat-label">Enfocados en Resultados</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-avatar">
-                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
-                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
-                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
-                            </svg>
+                            <img src="ceo-photo.png" alt="Ana García - CEO" class="ceo-photo">
                         </div>
-                        <h4 class="member-name">Ana García</h4>
-                        <p class="member-role">CEO & Fundadora</p>
+                        <h4 class="member-name">Edgar Salinas</h4>
+                        <p class="member-role">CEO & Fundador</p>
                     </div>
-                    <div class="team-member">
-                        <div class="member-avatar">
-                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
-                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
-                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
-                            </svg>
-                        </div>
-                        <h4 class="member-name">Carlos Rodríguez</h4>
-                        <p class="member-role">CTO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipo Profesional -->
+    <section class="professional-team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Equipo de Expertos</h2>
+                <p class="section-subtitle">Contamos con los mejores profesionales especializados para garantizar la excelencia en cada proyecto</p>
+            </div>
+            <div class="professionals-grid">
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=97395&format=png&color=000000" alt="">
                     </div>
-                    <div class="team-member">
-                        <div class="member-avatar">
-                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="40" cy="40" r="40" fill="#2563eb" opacity="0.1"/>
-                                <circle cx="40" cy="30" r="12" fill="#2563eb"/>
-                                <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#2563eb"/>
-                            </svg>
-                        </div>
-                        <h4 class="member-name">María López</h4>
-                        <p class="member-role">Lead Developer</p>
+                    <h3 class="professional-title">Desarrolladores Senior</h3>
+                    <p class="professional-description">Expertos con más de 5 años de experiencia en tecnologías modernas, arquitectura de software y mejores prácticas de desarrollo.</p>
+                    <ul class="professional-skills">
+                        <li>Arquitectura de software escalable</li>
+                        <li>Desarrollo full-stack avanzado</li>
+                        <li>Optimización de rendimiento</li>
+                        <li>Metodologías ágiles</li>
+                    </ul>
+                </div>
+
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=Ygov9LJC2LzE&format=png&color=000000" alt="">
                     </div>
+                    <h3 class="professional-title">Documentadores Técnicos</h3>
+                    <p class="professional-description">Especialistas en crear documentación clara, completa y mantenible para garantizar la comprensión y mantenimiento del código.</p>
+                    <ul class="professional-skills">
+                        <li>Documentación de APIs</li>
+                        <li>Manuales de usuario técnicos</li>
+                        <li>Guías de implementación</li>
+                        <li>Estándares de codificación</li>
+                    </ul>
+                </div>
+
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=7kZSmEyroNI0&format=png&color=000000" alt="">
+                    </div>
+                    <h3 class="professional-title">Analistas de Calidad</h3>
+                    <p class="professional-description">Expertos en testing, QA y aseguramiento de la calidad que garantizan que cada entrega cumpla con los más altos estándares.</p>
+                    <ul class="professional-skills">
+                        <li>Testing automatizado</li>
+                        <li>Pruebas de rendimiento</li>
+                        <li>Auditorías de código</li>
+                        <li>Control de calidad integral</li>
+                    </ul>
+                </div>
+
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=124185&format=png&color=000000" alt="">
+                    </div>
+                    <h3 class="professional-title">Consultores de Negocio</h3>
+                    <p class="professional-description">Especialistas en análisis de procesos empresariales que traducen necesidades de negocio en soluciones tecnológicas efectivas.</p>
+                    <ul class="professional-skills">
+                        <li>Análisis de requerimientos</li>
+                        <li>Optimización de procesos</li>
+                        <li>Estrategia tecnológica</li>
+                        <li>Gestión de proyectos</li>
+                    </ul>
+                </div>
+
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=IqYc5xwmnTQW&format=png&color=000000" alt="">
+                    </div>
+                    <h3 class="professional-title">Especialistas en Seguridad</h3>
+                    <p class="professional-description">Expertos en ciberseguridad que implementan las mejores prácticas para proteger aplicaciones y datos sensibles.</p>
+                    <ul class="professional-skills">
+                        <li>Auditorías de seguridad<span class="coming-soon-tag">Próx.</span></li>
+                        <li>Implementación de protocolos<span class="coming-soon-tag">Próx.</span></li>
+                        <li>Análisis de vulnerabilidades<span class="coming-soon-tag">Próx.</span></li>
+                        <li>Cumplimiento normativo<span class="coming-soon-tag">Próx.</span></li>
+                    </ul>
+                </div>
+
+                <div class="professional-card">
+                    <div class="professional-icon">
+                        <img src="https://img.icons8.com/?size=100&id=BejoiOeRfYSo&format=png&color=000000" alt="">
+                    </div>
+                    <h3 class="professional-title">Arquitectos DevOps</h3>
+                    <p class="professional-description">Especialistas en infraestructura y despliegue que garantizan la escalabilidad, disponibilidad y eficiencia de las aplicaciones.</p>
+                    <ul class="professional-skills">
+                        <li>CI/CD automatizado</li>
+                        <li>Infraestructura como código</li>
+                        <li>Monitoreo y alertas</li>
+                        <li>Optimización de recursos</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -345,7 +473,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="EusaSpark Logo" width="32" height="32">
+                        <img src="logo1.png" alt="EusaSpark Logo" width="32" height="32">
                         <span>EusaSpark</span>
                     </div>
                     <p class="footer-description">

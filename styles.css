@@ -67,12 +67,19 @@ body {
 }
 
 .logo img {
-    filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.25)) 
+            drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15)) 
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
     transition: filter 0.3s ease;
+    background: transparent;
+    border-radius: 8px;
 }
 
 .logo img:hover {
-    filter: drop-shadow(0 6px 12px rgba(0, 191, 255, 0.4)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 6px 16px rgba(37, 99, 235, 0.35)) 
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) 
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transform: translateY(-1px);
 }
 
 .nav-list {
@@ -300,65 +307,6 @@ section {
     font-weight: bold;
 }
 
-/* Sección de Proyectos */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid var(--gray-200);
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--gray-900);
-    margin-bottom: 0.75rem;
-}
-
-.project-description {
-    color: var(--gray-600);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.project-tech {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.tech-tag {
-    background: var(--gray-100);
-    color: var(--gray-700);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
 /* Sección Nosotros */
 .about {
     background: var(--gray-50);
@@ -407,6 +355,36 @@ section {
     gap: 1.5rem;
 }
 
+/* Estilo para team-grid con un solo miembro */
+.team-grid-single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-grid-single .team-member {
+    max-width: 400px;
+    width: 100%;
+    padding: 2.5rem 3rem;
+}
+
+/* Responsive para team-grid-single */
+@media (max-width: 768px) {
+    .team-grid-single {
+        justify-content: center;
+    }
+    
+    .team-grid-single .team-member {
+        max-width: 320px;
+        padding: 2rem;
+    }
+    
+    .ceo-photo {
+        width: 130px;
+        height: 130px;
+    }
+}
+
 .team-member {
     text-align: center;
     background: var(--white);
@@ -416,9 +394,26 @@ section {
 }
 
 .member-avatar {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para la foto del CEO */
+.ceo-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 60%;
+    object-fit: cover;
+    border: 4px solid var(--primary-blue);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ceo-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
 }
 
 .member-name {
@@ -511,6 +506,30 @@ section {
     min-height: 120px;
 }
 
+/* Asegurar que el contenedor del logo mantenga fondo limpio */
+.logo, .footer-logo {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/* Efecto adicional para dar más profundidad al ícono */
+.logo img, .footer-logo img {
+    position: relative;
+    z-index: 1;
+}
+
+/* Variante alternativa con sombra más suave y profesional */
+.logo img.soft-shadow {
+    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.2)) 
+            drop-shadow(0 1px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo img.soft-shadow:hover {
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3)) 
+            drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
 /* Pie de página */
 .footer {
     background: var(--gray-900);
@@ -536,12 +555,19 @@ section {
 }
 
 .footer-logo img {
-    filter: drop-shadow(0 3px 6px rgba(0, 191, 255, 0.3)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 3px 10px rgba(59, 130, 246, 0.3)) 
+            drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2)) 
+            drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
     transition: filter 0.3s ease;
+    background: transparent;
+    border-radius: 6px;
 }
 
 .footer-logo img:hover {
-    filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 4px 14px rgba(59, 130, 246, 0.4)) 
+            drop-shadow(0 3px 7px rgba(0, 0, 0, 0.25)) 
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transform: translateY(-1px);
 }
 
 .footer-description {
@@ -884,4 +910,743 @@ html {
 .project-card:hover::before,
 .team-member:hover::before {
     left: 100%;
+}
+
+/* Contenedor VS Code Simulado */
+.vscode-container {
+    width: 500px;
+    height: 400px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    position: relative;
+}
+
+/* Barra superior de VS Code */
+.vscode-titlebar {
+    height: 35px;
+    background: #323233;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #2d2d30;
+}
+
+.vscode-traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.traffic-light.close { background: #ff5f57; }
+.traffic-light.minimize { background: #ffbd2e; }
+.traffic-light.maximize { background: #28ca42; }
+
+.vscode-title {
+    flex: 1;
+    text-align: center;
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Área de pestañas */
+.vscode-tabs {
+    height: 35px;
+    background: #2d2d30;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.vscode-tab {
+    padding: 8px 16px;
+    background: #2d2d30;
+    color: #969696;
+    font-size: 13px;
+    border-right: 1px solid #1e1e1e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.vscode-tab.active {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+.vscode-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #007acc;
+}
+
+/* Área de código */
+.vscode-editor {
+    height: calc(400px - 70px);
+    background: #1e1e1e;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-content {
+    color: #d4d4d4;
+    font-size: 11px;
+    line-height: 1.5;
+    white-space: pre;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Números de línea */
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 40px;
+    color: #858585;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    padding-right: 16px;
+    user-select: none;
+}
+
+.code-area {
+    margin-left: 56px;
+    position: relative;
+}
+
+/* Cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 21px;
+    background: #ffffff;
+    animation: blink 1s infinite;
+    position: relative;
+    top: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Colores de sintaxis para Python */
+.python-keyword { color: #569cd6; }
+.python-string { color: #ce9178; }
+.python-comment { color: #6a9955; }
+.python-function { color: #dcdcaa; }
+.python-number { color: #b5cea8; }
+.python-operator { color: #d4d4d4; }
+
+/* Colores de sintaxis para JavaScript */
+.js-keyword { color: #569cd6; }
+.js-string { color: #ce9178; }
+.js-comment { color: #6a9955; }
+.js-function { color: #dcdcaa; }
+.js-number { color: #b5cea8; }
+.js-operator { color: #d4d4d4; }
+.js-property { color: #9cdcfe; }
+
+/* Colores para comandos Linux */
+.linux-command { color: #4ec9b0; }
+.linux-flag { color: #569cd6; }
+.linux-path { color: #ce9178; }
+.linux-output { color: #d4d4d4; }
+.linux-prompt { color: #4ec9b0; }
+
+/* Animaciones de escritura */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    animation: typing 0.5s steps(1) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Transiciones suaves entre lenguajes */
+.language-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.language-transition.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive para el contenedor VS Code */
+@media (max-width: 768px) {
+    .vscode-container {
+        width: 100%;
+        max-width: 500px;
+        height: 320px;
+    }
+    
+    .vscode-editor {
+        height: calc(320px - 70px);
+        padding: 12px;
+    }
+    
+    .code-content {
+        font-size: 9px;
+    }
+    
+    .line-numbers {
+        font-size: 12px;
+        width: 35px;
+        padding-right: 12px;
+    }
+    
+    .code-area {
+        margin-left: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vscode-container {
+        height: 280px;
+    }
+    
+    .vscode-editor {
+        height: calc(280px - 70px);
+        padding: 8px;
+    }
+    
+    .code-content {
+        font-size: 8px;
+    }
+    
+    .vscode-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Contenedor VS Code Simulado */
+.vscode-container {
+    width: 500px;
+    height: 400px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    position: relative;
+}
+
+/* Barra superior de VS Code */
+.vscode-titlebar {
+    height: 35px;
+    background: #323233;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #2d2d30;
+}
+
+.vscode-traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.traffic-light.close { background: #ff5f57; }
+.traffic-light.minimize { background: #ffbd2e; }
+.traffic-light.maximize { background: #28ca42; }
+
+.vscode-title {
+    flex: 1;
+    text-align: center;
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Área de pestañas */
+.vscode-tabs {
+    height: 35px;
+    background: #2d2d30;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.vscode-tab {
+    padding: 8px 16px;
+    background: #2d2d30;
+    color: #969696;
+    font-size: 13px;
+    border-right: 1px solid #1e1e1e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.vscode-tab.active {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+.vscode-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #007acc;
+}
+
+/* Área de código */
+.vscode-editor {
+    height: calc(400px - 70px);
+    background: #1e1e1e;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-content {
+    color: #d4d4d4;
+    font-size: 11px;
+    line-height: 1.5;
+    white-space: pre;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Números de línea */
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 40px;
+    color: #858585;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    padding-right: 16px;
+    user-select: none;
+}
+
+.code-area {
+    margin-left: 56px;
+    position: relative;
+}
+
+/* Cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 21px;
+    background: #ffffff;
+    animation: blink 1s infinite;
+    position: relative;
+    top: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Colores de sintaxis para Python */
+.python-keyword { color: #569cd6; }
+.python-string { color: #ce9178; }
+.python-comment { color: #6a9955; }
+.python-function { color: #dcdcaa; }
+.python-number { color: #b5cea8; }
+.python-operator { color: #d4d4d4; }
+
+/* Colores de sintaxis para JavaScript */
+.js-keyword { color: #569cd6; }
+.js-string { color: #ce9178; }
+.js-comment { color: #6a9955; }
+.js-function { color: #dcdcaa; }
+.js-number { color: #b5cea8; }
+.js-operator { color: #d4d4d4; }
+.js-property { color: #9cdcfe; }
+
+/* Colores para comandos Linux */
+.linux-command { color: #4ec9b0; }
+.linux-flag { color: #569cd6; }
+.linux-path { color: #ce9178; }
+.linux-output { color: #d4d4d4; }
+.linux-prompt { color: #4ec9b0; }
+
+/* Animaciones de escritura */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    animation: typing 0.5s steps(1) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Transiciones suaves entre lenguajes */
+.language-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.language-transition.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive para el contenedor VS Code */
+@media (max-width: 768px) {
+    .vscode-container {
+        width: 100%;
+        max-width: 500px;
+        height: 320px;
+    }
+    
+    .vscode-editor {
+        height: calc(320px - 70px);
+        padding: 12px;
+    }
+    
+    .code-content {
+        font-size: 12px;
+    }
+    
+    .line-numbers {
+        font-size: 12px;
+        width: 35px;
+        padding-right: 12px;
+    }
+    
+    .code-area {
+        margin-left: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vscode-container {
+        height: 280px;
+    }
+    
+    .vscode-editor {
+        height: calc(280px - 70px);
+        padding: 8px;
+    }
+    
+    .code-content {
+        font-size: 11px;
+    }
+    
+    .vscode-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+/* Etiqueta "Próximamente" más pequeña para elementos de lista */
+.coming-soon-tag {
+    display: inline-block;
+    background: #dc2626;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    margin-left: 6px;
+    box-shadow: 0 1px 3px rgba(220, 38, 38, 0.25);
+    vertical-align: middle;
+    animation: pulse-tag 2s infinite;
+}
+
+@keyframes pulse-tag {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 1px 3px rgba(220, 38, 38, 0.25);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 1px 4px rgba(220, 38, 38, 0.35);
+    }
+}
+
+/* Sección de Tecnologías */
+.technologies {
+    background: var(--white);
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.tech-category {
+    text-align: center;
+}
+
+.tech-category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.tech-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+}
+
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+}
+
+.tech-icon:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.tech-icon img {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon:hover svg {
+    transform: scale(1.1);
+}
+
+.tech-icon span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    text-align: center;
+}
+
+.tech-icon:hover span {
+    color: var(--primary-blue);
+}
+
+/* Responsive para tecnologías */
+@media (max-width: 768px) {
+    .technologies-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .tech-icon {
+        padding: 1rem;
+    }
+    
+    .tech-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-icon {
+        padding: 0.75rem;
+    }
+    
+    .tech-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .tech-icon span {
+        font-size: 0.75rem;
+    }
+}
+
+/* Sección de Equipo Profesional */
+.professional-team {
+    background: var(--gray-50);
+    padding: 80px 0;
+}
+
+.professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.professional-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.professional-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), #3b82f6);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.professional-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.professional-card:hover::before {
+    transform: scaleX(1);
+}
+
+.professional-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.professional-icon img {
+    transition: transform 0.3s ease;
+}
+
+.professional-card:hover .professional-icon img {
+    transform: scale(1.1);
+}
+
+.professional-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.professional-description {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.professional-skills {
+    list-style: none;
+    text-align: left;
+}
+
+.professional-skills li {
+    padding: 0.5rem 0;
+    color: var(--gray-600);
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.professional-skills li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* Responsive para equipo profesional */
+@media (max-width: 768px) {
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .professional-card {
+        padding: 2rem;
+    }
+    
+    .professional-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .professional-card {
+        padding: 1.5rem;
+    }
+    
+    .professional-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .professional-title {
+        font-size: 1.125rem;
+    }
+    
+    .professional-description {
+        font-size: 0.9rem;
+    }
 }

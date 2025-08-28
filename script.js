@@ -25,13 +25,14 @@ function initNavigation() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Calcular offset para el header fijo
+                // Calcular offset para el header fijo con margen adicional
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+                const additionalOffset = 20; // Margen adicional para mejor alineación
+                const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
                 
                 // Scroll suave a la sección
                 window.scrollTo({
-                    top: targetPosition,
+                    top: Math.max(0, targetPosition), // Evitar valores negativos
                     behavior: 'smooth'
                 });
                 
@@ -44,29 +45,47 @@ function initNavigation() {
         });
     });
     
-    // Detectar sección activa durante el scroll
+    // Detectar sección activa durante el scroll con debounce
+    let scrollTimeout;
     window.addEventListener('scroll', function() {
+        // Usar debounce para mejorar performance
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            updateActiveSection();
+        }, 10);
+    });
+    
+    // Función separada para actualizar sección activa
+    function updateActiveSection() {
         let current = '';
         const headerHeight = document.querySelector('.header').offsetHeight;
+        const scrollPosition = window.pageYOffset;
+        const additionalOffset = 20; // Mismo offset que en el click
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 100;
+            const sectionTop = section.offsetTop - headerHeight - additionalOffset;
             const sectionHeight = section.clientHeight;
+            const sectionBottom = sectionTop + sectionHeight;
             
-            if (window.pageYOffset >= sectionTop && 
-                window.pageYOffset < sectionTop + sectionHeight) {
+            // Mejorar la detección de sección activa
+            if (scrollPosition >= sectionTop - 50 && scrollPosition < sectionBottom - 50) {
                 current = section.getAttribute('id');
             }
         });
         
+        // Manejar caso especial para la primera sección
+        if (scrollPosition < 100) {
+            current = 'inicio';
+        }
+        
         // Actualizar enlace activo basado en la sección visible
         if (current) {
             const activeLink = document.querySelector(`.nav-link[href="#${current}"]`);
-            if (activeLink) {
+            if (activeLink && !activeLink.classList.contains('active')) {
                 updateActiveNavLink(activeLink);
             }
         }
-    });
+    }
 }
 
 // Actualizar enlace de navegación activo
@@ -450,3 +469,135 @@ if (typeof module !== 'undefined' && module.exports) {
         validateContactForm
     };
 }
+
+// Simulador de VS Code con animaciones de escritura
+class VSCodeSimulator {
+    constructor() {
+        this.currentLanguage = 0;
+        this.languages = ['python', 'javascript', 'linux'];
+        this.isTyping = false;
+        this.typeSpeed = 30; // milisegundos entre caracteres
+        
+        // Contenido de código para cada lenguaje
+        this.codeContent = {
+            python: {
+                tab: 'main.py',
+                code: `<span class="python-comment"># Sistema de gestión de inventario</span>\n<span class="python-keyword">import</span> pandas <span class="python-keyword">as</span> pd\n<span class="python-keyword">from</span> datetime <span class="python-keyword">import</span> datetime\n\n<span class="python-keyword">class</span> <span class="python-function">InventoryManager</span>:\n    <span class="python-keyword">def</span> <span class="python-function">__init__</span>(<span class="python-keyword">self</span>):\n        <span class="python-keyword">self</span>.products = []\n        <span class="python-keyword">self</span>.sales = []\n    \n    <span class="python-keyword">def</span> <span class="python-function">add_product</span>(<span class="python-keyword">self</span>, name, price, stock):\n        product = {\n            <span class="python-string">'name'</span>: name,\n            <span class="python-string">'price'</span>: price,\n            <span class="python-string">'stock'</span>: stock,\n            <span class="python-string">'created_at'</span>: datetime.now()\n        }\n        <span class="python-keyword">self</span>.products.append(product)\n        <span class="python-keyword">return</span> <span class="python-string">f"Producto {name} agregado exitosamente"</span>\n\n<span class="python-comment"># Crear instancia del gestor</span>\nmanager = InventoryManager()\nresult = manager.add_product(<span class="python-string">"Laptop"</span>, <span class="python-number">1299.99</span>, <span class="python-number">50</span>)\n<span class="python-function">print</span>(result)`
+            },
+            javascript: {
+                tab: 'app.js',
+                code: `<span class="js-comment">// Sistema de autenticación con JWT</span>\n<span class="js-keyword">const</span> express = <span class="js-function">require</span>(<span class="js-string">'express'</span>);\n<span class="js-keyword">const</span> jwt = <span class="js-function">require</span>(<span class="js-string">'jsonwebtoken'</span>);\n<span class="js-keyword">const</span> bcrypt = <span class="js-function">require</span>(<span class="js-string">'bcrypt'</span>);\n\n<span class="js-keyword">const</span> app = <span class="js-function">express</span>();\napp.<span class="js-property">use</span>(express.<span class="js-function">json</span>());\n\n<span class="js-comment">// Middleware de autenticación</span>\n<span class="js-keyword">const</span> <span class="js-function">authenticateToken</span> = (req, res, next) => {\n    <span class="js-keyword">const</span> authHeader = req.<span class="js-property">headers</span>[<span class="js-string">'authorization'</span>];\n    <span class="js-keyword">const</span> token = authHeader && authHeader.<span class="js-function">split</span>(<span class="js-string">' '</span>)[<span class="js-number">1</span>];\n    \n    <span class="js-keyword">if</span> (!token) {\n        <span class="js-keyword">return</span> res.<span class="js-function">sendStatus</span>(<span class="js-number">401</span>);\n    }\n    \n    jwt.<span class="js-function">verify</span>(token, process.<span class="js-property">env</span>.<span class="js-property">JWT_SECRET</span>, (err, user) => {\n        <span class="js-keyword">if</span> (err) <span class="js-keyword">return</span> res.<span class="js-function">sendStatus</span>(<span class="js-number">403</span>);\n        req.<span class="js-property">user</span> = user;\n        <span class="js-function">next</span>();\n    });\n};\n\n<span class="js-comment">// Ruta de login</span>\napp.<span class="js-function">post</span>(<span class="js-string">'/api/login'</span>, <span class="js-keyword">async</span> (req, res) => {\n    <span class="js-keyword">const</span> { username, password } = req.<span class="js-property">body</span>;\n    <span class="js-comment">// Lógica de autenticación aquí</span>\n});\n\napp.<span class="js-function">listen</span>(<span class="js-number">3000</span>, () => {\n    console.<span class="js-function">log</span>(<span class="js-string">'Servidor ejecutándose en puerto 3000'</span>);\n});`
+            },
+            linux: {
+                tab: 'terminal',
+                code: `<span class="linux-prompt">edgar@eusaspark:~$</span> <span class="linux-command">ls</span> <span class="linux-flag">-la</span>\n<span class="linux-output">total 48</span>\n<span class="linux-output">drwxr-xr-x  7 edgar edgar 4096 Jan 15 10:30 .</span>\n<span class="linux-output">drwxr-xr-x  3 root  root  4096 Jan 10 09:15 ..</span>\n<span class="linux-output">-rw-r--r--  1 edgar edgar  220 Jan 10 09:15 .bash_logout</span>\n<span class="linux-output">-rw-r--r--  1 edgar edgar 3526 Jan 10 09:15 .bashrc</span>\n<span class="linux-output">drwxr-xr-x  3 edgar edgar 4096 Jan 12 14:20 projects</span>\n\n<span class="linux-prompt">edgar@eusaspark:~$</span> <span class="linux-command">cd</span> <span class="linux-path">projects/eusabusiness</span>\n\n<span class="linux-prompt">edgar@eusaspark:~/projects/eusabusiness$</span> <span class="linux-command">git</span> <span class="linux-flag">status</span>\n<span class="linux-output">On branch main</span>\n<span class="linux-output">Your branch is up to date with 'origin/main'.</span>\n<span class="linux-output">Changes not staged for commit:</span>\n<span class="linux-output">  modified:   src/components/Dashboard.js</span>\n<span class="linux-output">  modified:   src/styles/main.css</span>\n\n<span class="linux-prompt">edgar@eusaspark:~/projects/eusabusiness$</span> <span class="linux-command">npm</span> <span class="linux-flag">run</span> build\n<span class="linux-output">Building for production...</span>\n<span class="linux-output">✓ Build completed successfully</span>\n<span class="linux-output">✓ Assets optimized</span>\n<span class="linux-output">✓ Bundle size: 2.3MB</span>\n\n<span class="linux-prompt">edgar@eusaspark:~/projects/eusabusiness$</span> <span class="linux-command">docker</span> <span class="linux-flag">build</span> <span class="linux-flag">-t</span> eusabusiness <span class="linux-path">.</span>\n<span class="linux-output">Sending build context to Docker daemon...</span>\n<span class="linux-output">Step 1/8 : FROM node:16-alpine</span>\n<span class="linux-output">Successfully built and tagged eusabusiness:latest</span>\n\n<span class="linux-prompt">edgar@eusaspark:~/projects/eusabusiness$</span> <span class="linux-command">kubectl</span> <span class="linux-flag">apply</span> <span class="linux-flag">-f</span> <span class="linux-path">deployment.yaml</span>\n<span class="linux-output">deployment.apps/eusabusiness created</span>\n<span class="linux-output">service/eusabusiness-service created</span>`
+            }
+        };
+    }
+    
+    init() {
+        this.startAnimation();
+    }
+    
+    async startAnimation() {
+        while (true) {
+            const currentLang = this.languages[this.currentLanguage];
+            const content = this.codeContent[currentLang];
+            
+            // Actualizar pestaña
+            document.getElementById('currentTab').textContent = content.tab;
+            
+            // Limpiar contenido anterior
+            document.getElementById('codeContent').innerHTML = '';
+            
+            // Animar escritura del código
+            await this.typeCode(content.code);
+            
+            // Esperar 10 segundos
+            await this.sleep(8000);
+            
+            // Cambiar al siguiente lenguaje
+            this.currentLanguage = (this.currentLanguage + 1) % this.languages.length;
+        }
+    }
+    
+    async typeCode(code) {
+        const codeElement = document.getElementById('codeContent');
+        const lines = code.split('\\n');
+        const lineNumbersElement = document.getElementById('lineNumbers');
+        
+        // Actualizar números de línea
+        lineNumbersElement.innerHTML = lines.map((_, i) => i + 1).join('\\n');
+        
+        this.isTyping = true;
+        
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const lineElement = document.createElement('div');
+            codeElement.appendChild(lineElement);
+            
+            // Simular escritura carácter por carácter
+            await this.typeLine(lineElement, line);
+            
+            // Pequeña pausa entre líneas
+            await this.sleep(100);
+        }
+        
+        this.isTyping = false;
+    }
+    
+    async typeLine(element, text) {
+        // Para HTML con etiquetas, necesitamos un enfoque especial
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = text;
+        const textContent = tempDiv.textContent || tempDiv.innerText || '';
+        
+        let currentIndex = 0;
+        const htmlChars = text.split('');
+        let insideTag = false;
+        let currentHtml = '';
+        
+        for (let i = 0; i < htmlChars.length; i++) {
+            const char = htmlChars[i];
+            
+            if (char === '<') {
+                insideTag = true;
+            }
+            
+            currentHtml += char;
+            
+            if (char === '>') {
+                insideTag = false;
+            }
+            
+            // Solo hacer pausa si no estamos dentro de una etiqueta HTML
+            if (!insideTag && char !== '<' && char !== '>') {
+                element.innerHTML = currentHtml;
+                await this.sleep(this.typeSpeed);
+            } else {
+                element.innerHTML = currentHtml;
+            }
+        }
+    }
+    
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+}
+
+// Modificar la función DOMContentLoaded existente para incluir el simulador
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar todas las funcionalidades existentes
+    initNavigation();
+    initMobileMenu();
+    initScrollEffects();
+    initContactForm();
+    initAnimations();
+    
+    // Inicializar simulador VS Code
+    const vscodeContainer = document.getElementById('vscodeContainer');
+    if (vscodeContainer) {
+        const simulator = new VSCodeSimulator();
+        simulator.init();
+    }
+});
