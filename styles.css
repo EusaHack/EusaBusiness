@@ -103,7 +103,6 @@ body {
 }
 
 .nav-link.active::after {
-    content: '';
     position: absolute;
     bottom: -8px;
     left: 0;
@@ -121,17 +120,95 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    z-index: 1001;
+    position: relative;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background-color: var(--gray-100);
 }
 
 .mobile-menu-btn span {
-    width: 25px;
+    width: 24px;
     height: 3px;
     background: var(--gray-700);
     border-radius: 2px;
     transition: all 0.3s ease;
+    transform-origin: center;
+}
+/* Animación del botón hamburguesa */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+/* Estilos para el menú móvil abierto */
+.nav.mobile-open {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 16px 16px;
+    padding: 1.5rem;
+    z-index: 1000;
+    border-top: 1px solid var(--gray-200);
 }
 
+.nav.mobile-open .nav-list {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav.mobile-open .nav-link {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: left;
+    color: var(--gray-700);
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.nav.mobile-open .nav-link:hover,
+.nav.mobile-open .nav-link.active {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    transform: translateX(4px);
+}
+
+
+.nav.mobile-open {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* Sección Hero */
 .hero {
     background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
@@ -368,22 +445,6 @@ section {
     padding: 2.5rem 3rem;
 }
 
-/* Responsive para team-grid-single */
-@media (max-width: 768px) {
-    .team-grid-single {
-        justify-content: center;
-    }
-    
-    .team-grid-single .team-member {
-        max-width: 320px;
-        padding: 2rem;
-    }
-    
-    .ceo-photo {
-        width: 130px;
-        height: 130px;
-    }
-}
 
 .team-member {
     text-align: center;
@@ -649,6 +710,12 @@ section {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
+    .header {
+        position: fixed;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
     .hero {
         padding: 150px 0 60px;
         min-height: auto;
@@ -722,6 +789,10 @@ section {
     .mobile-menu-btn {
         display: flex;
     }
+
+    .header {
+        position: fixed;
+    }
     
     .hero {
         padding: 130px 0 50px;
@@ -787,6 +858,78 @@ section {
     .social-links {
         justify-content: center;
     }
+    .team-grid-single {
+        justify-content: center;
+    }
+    
+    .team-grid-single .team-member {
+        max-width: 320px;
+        padding: 2rem;
+    }
+    
+    .ceo-photo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .vscode-container {
+        width: 500px;       /* Mantiene ancho fijo */
+        max-width: 95%;      /* Opcional: permite un poco de flexibilidad si es necesario */
+        height: 320px;
+    }
+
+    .vscode-editor {
+        height: calc(320px - 70px);
+        padding: 12px;
+    }
+
+    .code-content {
+        font-size: 9px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .line-numbers {
+        font-size: 12px;
+        width: 35px;
+        padding-right: 12px;
+    }
+
+    .code-area {
+        margin-left: 47px;
+    }
+    .technologies-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .tech-icon {
+        padding: 1rem;
+    }
+    
+    .tech-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .professional-card {
+        padding: 2rem;
+    }
+    
+    .professional-title {
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -844,6 +987,61 @@ section {
     
     .section-title {
         font-size: 1.75rem;
+    }
+
+    .vscode-container {
+        width: 500px;   /* Sigue fijo */
+        max-width: 95%; /* opcional para pantallas muy pequeñas */
+        height: 280px;
+    }
+
+    .vscode-editor {
+        height: calc(280px - 70px);
+        padding: 8px;
+    }
+
+    .code-content {
+        font-size: 8px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .vscode-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-icon {
+        padding: 0.75rem;
+    }
+    
+    .tech-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .tech-icon span {
+        font-size: 0.75rem;
+    }
+    .professional-card {
+        padding: 1.5rem;
+    }
+    
+    .professional-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .professional-title {
+        font-size: 1.125rem;
+    }
+    
+    .professional-description {
+        font-size: 0.9rem;
     }
 }
 
@@ -1097,63 +1295,6 @@ html {
     transform: translateY(0);
 }
 
-/* Responsive para el contenedor VS Code */
-/* En pantallas más pequeñas */
-@media (max-width: 768px) {
-    .vscode-container {
-        width: 500px;       /* Mantiene ancho fijo */
-        max-width: 95%;      /* Opcional: permite un poco de flexibilidad si es necesario */
-        height: 320px;
-    }
-
-    .vscode-editor {
-        height: calc(320px - 70px);
-        padding: 12px;
-    }
-
-    .code-content {
-        font-size: 9px;
-        white-space: pre-wrap;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .line-numbers {
-        font-size: 12px;
-        width: 35px;
-        padding-right: 12px;
-    }
-
-    .code-area {
-        margin-left: 47px;
-    }
-}
-
-@media (max-width: 480px) {
-    .vscode-container {
-        width: 500px;   /* Sigue fijo */
-        max-width: 95%; /* opcional para pantallas muy pequeñas */
-        height: 280px;
-    }
-
-    .vscode-editor {
-        height: calc(280px - 70px);
-        padding: 8px;
-    }
-
-    .code-content {
-        font-size: 8px;
-        white-space: pre-wrap;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .vscode-tab {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-}
-
 /* Etiqueta "Próximamente" más pequeña para elementos de lista */
 .coming-soon-tag {
     display: inline-block;
@@ -1266,46 +1407,8 @@ html {
     color: var(--primary-blue);
 }
 
-/* Responsive para tecnologías */
-@media (max-width: 768px) {
-    .technologies-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .tech-icons {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
-    }
-    
-    .tech-icon {
-        padding: 1rem;
-    }
-    
-    .tech-icon svg {
-        width: 40px;
-        height: 40px;
-    }
-}
 
-@media (max-width: 480px) {
-    .tech-icons {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .tech-icon {
-        padding: 0.75rem;
-    }
-    
-    .tech-icon svg {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .tech-icon span {
-        font-size: 0.75rem;
-    }
-}
+
 
 /* Sección de Equipo Profesional */
 .professional-team {
@@ -1399,39 +1502,4 @@ html {
     left: 0;
     color: var(--primary-blue);
     font-weight: bold;
-}
-
-/* Responsive para equipo profesional */
-@media (max-width: 768px) {
-    .professionals-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .professional-card {
-        padding: 2rem;
-    }
-    
-    .professional-title {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .professional-card {
-        padding: 1.5rem;
-    }
-    
-    .professional-icon svg {
-        width: 48px;
-        height: 48px;
-    }
-    
-    .professional-title {
-        font-size: 1.125rem;
-    }
-    
-    .professional-description {
-        font-size: 0.9rem;
-    }
 }
