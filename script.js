@@ -27,7 +27,7 @@ function initNavigation() {
             if (targetSection) {
                 // Calcular offset para el header fijo con margen adicional
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const additionalOffset = 20; // Margen adicional para mejor alineación
+                const additionalOffset = 180; // Aumentado a 150 para que baje menos en todas las secciones
                 const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
                 
                 // Scroll suave a la sección
