@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar todas las funcionalidades
     initNavigation();
-    initMobileMenu();
+    //initMobileMenu(); // ELIMINADO
     initScrollEffects();
     initContactForm();
     initAnimations();
@@ -27,7 +27,7 @@ function initNavigation() {
             if (targetSection) {
                 // Calcular offset para el header fijo con margen adicional
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const additionalOffset = 20; // Margen adicional para mejor alineación
+                const additionalOffset = 180; // Aumentado a 150 para que baje menos en todas las secciones
                 const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
                 
                 // Scroll suave a la sección
@@ -105,7 +105,10 @@ function initMobileMenu() {
     const nav = document.querySelector('.nav');
     
     if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            console.log('Click en botón móvil detectado!');
+            e.preventDefault();
+            e.stopPropagation();
             toggleMobileMenu();
         });
         
@@ -115,6 +118,23 @@ function initMobileMenu() {
                 closeMobileMenu();
             }
         });
+        
+        // Cerrar menú al redimensionar ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Cerrar menú al hacer click en un enlace
+        const navLinks = nav.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+    } else {
+        console.error('No se encontraron los elementos necesarios para el menú móvil');
     }
 }
 
@@ -123,36 +143,23 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.nav');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     
-    if (!nav || !mobileMenuBtn) return;
+    if (!nav || !mobileMenuBtn) {
+        return;
+    }
     
     const isOpen = nav.classList.contains('mobile-open');
     
     if (isOpen) {
-        // Cerrar menú
         closeMobileMenu();
     } else {
         // Abrir menú
         nav.classList.add('mobile-open');
         mobileMenuBtn.classList.add('active');
         
-        // Agregar estilos CSS dinámicos para el menú móvil
-        nav.style.display = 'block';
-        nav.style.position = 'absolute';
-        nav.style.top = '100%';
-        nav.style.left = '0';
-        nav.style.right = '0';
-        nav.style.background = 'white';
-        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        nav.style.borderRadius = '0 0 12px 12px';
-        nav.style.padding = '1rem';
-        nav.style.zIndex = '999';
+        // Prevenir scroll del body cuando el menú está abierto
+        document.body.style.overflow = 'hidden';
         
-        // Estilos para la lista de navegación móvil
-        const navList = nav.querySelector('.nav-list');
-        if (navList) {
-            navList.style.flexDirection = 'column';
-            navList.style.gap = '1rem';
-        }
+        console.log('Menú móvil abierto');
     }
 }
 
@@ -161,34 +168,16 @@ function closeMobileMenu() {
     const nav = document.querySelector('.nav');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     
-    if (!nav || !mobileMenuBtn) return;
+    if (!nav || !mobileMenuBtn) {
+        return;
+    }
     
     nav.classList.remove('mobile-open');
     mobileMenuBtn.classList.remove('active');
     
-    // Restaurar estilos originales
-    if (window.innerWidth <= 768) {
-        // En móvil, ocultar el menú
-        nav.style.display = 'none';
-    } else {
-        // En desktop, restaurar estilos normales
-        nav.style.display = '';
-    }
+    // Restaurar scroll del body
+    document.body.style.overflow = '';
     
-    nav.style.position = '';
-    nav.style.top = '';
-    nav.style.left = '';
-    nav.style.right = '';
-    nav.style.background = '';
-    nav.style.boxShadow = '';
-    nav.style.borderRadius = '';
-    nav.style.padding = '';
-    
-    const navList = nav.querySelector('.nav-list');
-    if (navList) {
-        navList.style.flexDirection = '';
-        navList.style.gap = '';
-    }
 }
 
 // Efectos de scroll
